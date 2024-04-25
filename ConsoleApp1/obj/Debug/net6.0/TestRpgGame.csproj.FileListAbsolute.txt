@@ -1,0 +1,14 @@
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\TestRpgGame.exe
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\TestRpgGame.deps.json
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\TestRpgGame.runtimeconfig.json
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\TestRpgGame.dll
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\TestRpgGame.pdb
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.AssemblyInfoInputs.cache
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.AssemblyInfo.cs
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.dll
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\refint\TestRpgGame.dll
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.pdb
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\TestRpgGame.genruntimeconfig.cache
+C:\Users\admin\Documents\GitHub\0422_A_6Team\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ref\TestRpgGame.dll
