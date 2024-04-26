@@ -12,7 +12,7 @@ namespace TestRpgGame
         ChoiceLink choiceLink = new ChoiceLink();
         
         
-        public int playerChoice;
+        public static int playerChoice;
         bool isGamePlay = true;
         bool isCan = true;
                 
@@ -36,10 +36,9 @@ namespace TestRpgGame
                 
                 map.instruction(instructionNum); // 입력하세요 - 입력오류입니다 출력
 
-                int scriptCount = map.ScriptCount;
                 isCan = int.TryParse(Console.ReadLine(), out playerChoice);  // 플레이어 값 받기
 
-                choiceLink.choice(mapNum, isCan, playerChoice, scriptCount); // 플레이어의 값을 기반으로 맵 이동
+                choiceLink.choice(mapNum, isCan, playerChoice); // 플레이어의 값을 기반으로 맵 이동
 
             } // 반복
         }

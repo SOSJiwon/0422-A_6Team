@@ -16,7 +16,6 @@ namespace TestRpgGame
         public int health = 100;
         public int gold = 1500;
 
-        
     }
 
 }

@@ -29,7 +29,7 @@ namespace TestRpgGame
     {
         DefaultScript defaultScript = new DefaultScript();
         ChoiceScript choiceScript = new ChoiceScript();
-        Item item = new Item("-", "-", false, false, 0, 0, 0, 0);
+        // Item item = new Item("-", "-", false, false, 0, 0, 0, 0);
 
         public int ScriptCount; //선택지 개수 줄이는 용도
 
@@ -56,8 +56,6 @@ namespace TestRpgGame
         
         public void mapInfoScript(int choice) // 플레이어에게 세부 정보 제공 (맵 및 이벤트)
         {
-            
-
             switch (choice)
             {
                 case 0: // 마을
@@ -75,35 +73,30 @@ namespace TestRpgGame
 
                 case 2: // 인벤토리
                     defaultScript.InventoryScript();
-                    item.AllItemInHaveScript(choice); // 소유한 아이템
                     LimitLine();
                     choiceScript.InventoryScript();
                     break;
 
                 case 12: // 아이템 장착
-                    defaultScript.InvenItemScript(); // 소유한 아이템
-                    ScriptCount = item.AllItemInHaveScript(choice); // 값 반환 (Case Break용)
+                    defaultScript.InvenItemScript(); 
                     LimitLine();
                     choiceScript.InvenItemScript();
                     break;
 
                 case 3: // 상점
                     defaultScript.ShopScript();
-                    item.AllItemInShopScript(choice); // 상점 아이템
                     LimitLine();
                     choiceScript.ShopScript();
                     break;
 
                 case 13: // 상점 구매
                     defaultScript.ShopBuyScript();
-                    ScriptCount = item.AllItemInHaveScript(choice); // 값 반환 (Case Break용)
                     LimitLine();
                     choiceScript.ShopBuyScript();
                     break;
 
                 case 23: // 상점 판매
                     defaultScript.ShopSellScript();
-                    ScriptCount = item.AllItemInHaveScript(choice); // 값 반환 (Case Break용)
                     LimitLine();
                     choiceScript.ShopSellScript();
                     break;
@@ -167,15 +160,10 @@ namespace TestRpgGame
             Console.WriteLine("---------------------------------------");
         } // 가름줄
 
-        public void ItemInList()
+        public void ItemInList() 
         {
-            item.AllItemInShopList();
+           // item.AllItemInShopList();
         }
-
-        //public void Count()
-        //{
-        //    ChoiceLink.MakeScriptCount = (char)ScriptCount;
-        //}
      
     }
 
