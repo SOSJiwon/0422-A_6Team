@@ -96,7 +96,7 @@ namespace TestRpgGame
 
                 case 13: // 상점 구매
                     defaultScript.ShopBuyScript();
-                    ScriptCount = item.AllItemInHaveScript(choice); // 값 반환 (Case Break용)
+                    ScriptCount = item.AllItemInShopScript(choice); // 값 반환 (Case Break용)
                     LimitLine();
                     choiceScript.ShopBuyScript();
                     break;

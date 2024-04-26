@@ -51,8 +51,11 @@ namespace TestRpgGame
         {
             foreach (Item item in items)
             {
+                Console.WriteLine(choice);
+                Console.WriteLine(item.IDX);
                 if (choice == item.IDX)
                 {
+                    Console.WriteLine(item.IsHave);
                     switch (item.IsHave)
                     {
                         case false:
@@ -62,6 +65,8 @@ namespace TestRpgGame
                             item.IsHave = false;
                             break;
                     }
+                    Console.WriteLine(item.IsHave);
+                    Console.ReadLine();
                 }
             }
         }
@@ -90,8 +95,10 @@ namespace TestRpgGame
                 AllItemInHaveScript(mapNum);
                 return 0;
             }
-            else if (mapNum == 13) // 아이템 구매 페이지
+            
+            if (mapNum == 13) // 아이템 구매 페이지
             {
+                
                 int count = 1;
                 foreach (Item item in items)
                 {
@@ -101,6 +108,7 @@ namespace TestRpgGame
                         Console.WriteLine(" " + count + ". " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "\t | " + item.Price + item.IDX);
                         count++;
                     }
+                    else item.IDX = 0;
                 }
                 return count-1;
             }
@@ -172,6 +180,7 @@ namespace TestRpgGame
                         Console.WriteLine(count + ". " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "  | " + item.Price +" G" + item.IDX + item.IsHave);
                         count++;
                     }
+                    else item.IDX = 0;
                 }
                 return count - 1;
             }
