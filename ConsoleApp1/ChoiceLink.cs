@@ -283,49 +283,49 @@ namespace TestRpgGame
 
                     case 1:
                         if(ScriptCount>=1)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 2:
                         if (ScriptCount>=2)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 3:
                         if (ScriptCount >= 3)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 4:
                         if (ScriptCount >= 4)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 5:
                         if (ScriptCount >= 5)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 6:
                         if (ScriptCount >= 6)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 7:
                         if (ScriptCount >= 7)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 8:
                         if (ScriptCount >= 8)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
@@ -354,49 +354,49 @@ namespace TestRpgGame
 
                     case 1:
                         if ( ScriptCount >= 1)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 2:
                         if (ScriptCount >= 2)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 3:
                         if (ScriptCount >= 3)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 4:
                         if (ScriptCount >= 4)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 5:
                         if (ScriptCount >= 5)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 6:
                         if (ScriptCount >= 6)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 7:
                         if (ScriptCount >= 7)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum );
                         else MainGame.instructionNum = 1;
                         break;
 
                     case 8:
                         if (ScriptCount >= 8)
-                            Item.ItemHaveInTrue(playerChoice);
+                            Item.ItemHaveInTrue(playerChoice, mapNum);
                         else MainGame.instructionNum = 1;
                         break;
 

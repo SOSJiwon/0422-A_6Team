@@ -12,6 +12,13 @@ namespace TestRpgGame
     {
         Player Player = new Player();
 
+        public static bool IsCanBuy = true;
+
+        public static bool IsBuy = false;
+        public static bool IsSell = false;
+
+        public static string ItemName = "";
+        public static int ItemPrice = 0;
 
         public void VillageScript()
         {
@@ -29,6 +36,11 @@ namespace TestRpgGame
         {
             Console.WriteLine(" 여관 안은 조용합니다.");
             Console.WriteLine(" 단돈 500G로 하룻밤 묵을 수 있습니다. (체력 전부 회복)\n");
+
+            Console.WriteLine(" [ 보유골드 ]");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($" {Player.gold} G\n");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         public void InventoryScript()
         {
@@ -51,10 +63,34 @@ namespace TestRpgGame
         }
         public void ShopBuyScript()
         {
-            Console.WriteLine(" 주인장은 아무런 관심이 없지만 당신은 양심적으로 구매하려고 합니다.\n");
+            if (IsCanBuy == true)
+            {
+                Console.WriteLine(" 주인장은 아무런 관심이 없지만 당신은 양심적으로 구매하려고 합니다.\n");
+
+                if ( IsBuy == true )
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($" {ItemName} 를 {ItemPrice} G 에 구매했습니다.\n");
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    IsBuy = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine(" \"이봐! 돈이 없잖아. 제대로 된 돈으로 들고 오라고.\" ");
+                Console.WriteLine(" 주인장은 거지새끼를 보는 것 마냥 당신을 보고 있습니다.\n");
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" 돈이 없습니다.\n");
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+            
             // 타 함수로 나중에 옮기기
             Console.WriteLine(" [ 보유골드 ]");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($" {Player.gold} G\n");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         public void ShopSellScript()
         {
@@ -62,8 +98,19 @@ namespace TestRpgGame
             Console.WriteLine(" \"그래. 뭘 파시겠다고?\"");
             Console.WriteLine(" \"잘 쳐줄테니까 한번 보여줘 봐.\"\n");
 
+            if (IsSell == true) 
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($" {ItemName} 를 {ItemPrice} G 에 팔았습니다.\n");
+                Console.ForegroundColor = ConsoleColor.Black;
+
+                IsSell = false;
+            }
+
             Console.WriteLine(" [ 보유골드 ]");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($" {Player.gold} G\n");
+            Console.ForegroundColor = ConsoleColor.Black;
 
             Console.WriteLine(" [ 아이템 판매 모드 ]\n");
         }
@@ -85,6 +132,8 @@ namespace TestRpgGame
         {
             Console.WriteLine(" 던전 클리어! \n");
         }
+
+        
 
 
         //플레이어 정보 공개

@@ -32,41 +32,54 @@ namespace TestRpgGame
         public int Price { get; }
         public int IDX { get; set; }
 
-        string[] itemname = { "아이템 1", "아이템 2", "아이템 3", "아이템 4", "아이템 5", "아이템 6", "아이템 7", "아이템 8" };
-        string[] itemdesc = { "아이템 1 설명", "아이템 2 설명", "아이템 3 설명", "아이템 4 설명",
-                "아이템 5 설명", "아이템 6 설명", "아이템 7 설명", "아이템 8 설명" };
+        string[] itemname = { "롱소드", "천 갑옷", "열정의 검", "쇠사슬 조끼", "얼어붙은 심장", "정령의 형상", "마나무네", "고속 연사포" };
+        string[] itemdesc = { 
+            "기본에 충실한 무기입니다.", 
+            "기본에 충실한 방어구입니다.", 
+            "두개의 검이 위협적으로 빛납니다.", 
+            "사슬로 만들어져 더욱 단단합니다.",
+            "차가운 마나의 기운이 몸을 더 단단하게 만듭니다.",
+            "갑옷 주위를 푸른 정령이 감싸고 있습니다.",
+            "마나의 흐름이 느껴집니다.",
+            "더 멀리 공격할 수 있습니다." };
 
-        bool[] itemishave = { false, false, true, false, false, false, false, true };
-        bool[] itemistake = { false, false, true, false, false, false, false, false };
+        bool[] itemishave = { false, false, false, false, false, false, false, false };
+        bool[] itemistake = { false, false, false, false, false, false, false, false };
 
-        int[] itemadstat = { 10, 10, 10, 10, 10, 10, 10, 10 };
-        int[] itemdpstat = { 10, 10, 10, 10, 10, 10, 10, 10 };
+        int[] itemadstat = { 10, 0, 15, 5, 15, 5, 30, 35 };
+        int[] itemdpstat = { 0, 15, 5, 25, 35, 45, 10, 5 };
 
-        int[] itemprice = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 };
+        int[] itemprice = { 800, 800, 1100, 1300, 2700, 2800, 2600, 2800 };
         int[] itemidx = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
 
 
-        public static void ItemHaveInTrue(int choice) // 아이템을 구매 할 경우 True로 바꿔주는 함수
+        public static void ItemHaveInTrue(int choice, int mapNum) // 아이템을 구매 할 경우 True로 바꿔주는 함수
         {
             foreach (Item item in items)
             {
-                Console.WriteLine(choice);
-                Console.WriteLine(item.IDX);
-                if (choice == item.IDX)
+                if ((choice == item.IDX) && (Player.gold>=item.Price) && (mapNum==13) ) // 구매할 경우
                 {
-                    Console.WriteLine(item.IsHave);
-                    switch (item.IsHave)
-                    {
-                        case false:
-                            item.IsHave = true;
-                            break;
-                        case true:
-                            item.IsHave = false;
-                            break;
-                    }
-                    Console.WriteLine(item.IsHave);
-                    Console.ReadLine();
+                    item.IsHave = !item.IsHave;
+                    Player.gold -= item.Price;
+
+                    DefaultScript.IsCanBuy = true;
+                    DefaultScript.IsBuy = true;
+                    DefaultScript.ItemName = item.Name;
+                    DefaultScript.ItemPrice = item.Price;
+                }
+                else if ((choice == item.IDX) && (Player.gold < item.Price) && (mapNum == 13)) // 구매할 때 돈이 부족한 경우
+                {
+                    DefaultScript.IsCanBuy = false;
+                }
+                else if ((choice == item.IDX) && (mapNum == 23)) // 아이템을 판매할 경우 
+                {
+                    item.IsHave = !item.IsHave;
+                    Player.gold += item.Price / 100 * 85;
+
+                    DefaultScript.IsSell = true;
+                    DefaultScript.ItemName = item.Name;
+                    DefaultScript.ItemPrice = item.Price / 100 * 85;
                 }
             }
         }
@@ -76,15 +89,7 @@ namespace TestRpgGame
             {
                 if (choice == item.IDX)
                 {
-                    switch (item.IsTake)
-                    {
-                        case false:
-                            item.IsTake = true;
-                            break;
-                        case true:
-                            item.IsTake = false;
-                            break;
-                    }
+                    item.IsTake = !item.IsTake;
                 }
             }
         }
@@ -105,7 +110,7 @@ namespace TestRpgGame
                     if (item.IsHave == false)
                     {
                         item.IDX = count;
-                        Console.WriteLine(" " + count + ". " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "\t | " + item.Price + item.IDX);
+                        Console.WriteLine(" " + count + ". " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat + "\t | " + item.Price + "G\n");
                         count++;
                     }
                     else item.IDX = 0;
@@ -119,9 +124,9 @@ namespace TestRpgGame
                 {
                     item.IDX = count;
                     if (item.IsHave == true)
-                        Console.WriteLine(" - " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "\t | " + "구매완료" + item.IDX);
+                        Console.WriteLine(" - " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat + "\t | " + "구매완료\n" );
                     else
-                        Console.WriteLine(" - " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "\t | " + item.Price + item.IDX);
+                        Console.WriteLine(" - " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat + "\t | " + item.Price + "G\n");
                     count++;
                 }
                 return 0;
@@ -145,8 +150,7 @@ namespace TestRpgGame
                 {
                     item.IDX = count;
                     // 가지고 있는 아이템만 생성
-                    if (item.IsHave == true) { Console.WriteLine(" - " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + item.IDX + item.IsHave); }
-                        else { Console.WriteLine(" 테스트 텍스트 보유하고있지않음 "+ item.Name + item.IDX); }
+                    if (item.IsHave == true) { Console.WriteLine(" - " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat + "  | \n"); }
                     count++;
                 }
                 return 0;
@@ -160,12 +164,11 @@ namespace TestRpgGame
                     {
                         item.IDX = count;
                         if (item.IsTake == true) // 아이템을 착용하고 있다면 E 표시
-                            Console.WriteLine(count + ". " + " [E] " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + item.IDX);
+                            Console.WriteLine(count + ". " + " [E] " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat +"\n");
                         else
-                            Console.WriteLine(count + ". " + "     " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + item.IDX);
+                            Console.WriteLine(count + ". " + "     " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat +"\n");
                         count++;
                     }
-                    else { Console.WriteLine(" 테스트 텍스트 보유하고있지않음 " + item.Name + item.IDX); }
                 }
                 return count - 1;
             }
@@ -177,7 +180,7 @@ namespace TestRpgGame
                     item.IDX = count;
                     if (item.IsHave == true) // 가지고 있는 아이템만 나오도록
                     {
-                        Console.WriteLine(count + ". " + item.Name + "\t | 공격력 +" + item.ADStat + "  | 방어력 +" + item.DPStat + "  | " + item.Desc + "  | " + item.Price +" G" + item.IDX + item.IsHave);
+                        Console.WriteLine(count + ". " + item.Name + "  | " + item.Desc + "\n\t\t | 공격력 + " + item.ADStat + "  | 방어력 + " + item.DPStat +  "  | " + (item.Price/100*85) +"G (85%)\n" );
                         count++;
                     }
                     else item.IDX = 0;

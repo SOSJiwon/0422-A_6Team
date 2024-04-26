@@ -14,7 +14,7 @@ namespace TestRpgGame
         public int attack = 10;
         public int defense = 10;
         public int health = 100;
-        public int gold = 1500;
+        public static int gold = 15000;
 
         
     }
