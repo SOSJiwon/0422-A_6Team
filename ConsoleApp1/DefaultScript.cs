@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace TestRpgGame
 {
-   
-    // 맵 기본 정보 스크립트
     public class DefaultScript
     {
         Player Player = new Player();
@@ -67,7 +65,7 @@ namespace TestRpgGame
             {
                 Console.WriteLine(" 주인장은 아무런 관심이 없지만 당신은 양심적으로 구매하려고 합니다.\n");
 
-                if ( IsBuy == true )
+                if (IsBuy == true)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($" {ItemName} 를 {ItemPrice} G 에 구매했습니다.\n");
@@ -85,7 +83,7 @@ namespace TestRpgGame
                 Console.WriteLine(" 돈이 없습니다.\n");
                 Console.ForegroundColor = ConsoleColor.Black;
             }
-            
+
             // 타 함수로 나중에 옮기기
             Console.WriteLine(" [ 보유골드 ]");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -98,7 +96,7 @@ namespace TestRpgGame
             Console.WriteLine(" \"그래. 뭘 파시겠다고?\"");
             Console.WriteLine(" \"잘 쳐줄테니까 한번 보여줘 봐.\"\n");
 
-            if (IsSell == true) 
+            if (IsSell == true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($" {ItemName} 를 {ItemPrice} G 에 팔았습니다.\n");
@@ -133,136 +131,20 @@ namespace TestRpgGame
             Console.WriteLine(" 던전 클리어! \n");
         }
 
-        
+
 
 
         //플레이어 정보 공개
         public void PlayerInfoValse()
         {
-            Console.WriteLine(" 이름 : "+Player.playerName);
+            Console.WriteLine(" 이름 : " + Player.playerName);
             Console.WriteLine(" 레벨 : " + Player.level);
-            Console.WriteLine(" 현재 체력 : " + Player.health +" / 100\n");
-            
+            Console.WriteLine(" 현재 체력 : " + Player.health + " / 100\n");
+
             Console.WriteLine(" 공격력 : " + Player.attack);
             Console.WriteLine(" 방어력 : " + Player.defense + "\n");
-            
+
             Console.WriteLine(" 소지금 : " + Player.gold + " G \n");
-        }
-    }
-
-    // 맵 선택지 정보 스크립트
-    public class ChoiceScript
-    {
-        string[] VillageChoice = { "플레이어 정보 (PlayerInfo)", "인벤토리 (Inventory)", "상점 (Shop)", "여관 (Inn)", "던전 (Dungeon)" };
-        string[] ShopChoice = { "상점에서 나가기 (Village)", "아이템 구매", "아이템 판매" };
-        string[] InnChoice = { "여관에서 나가기 (Village)", "휴식하기" };
-        string[] InventoryChoice = { "인벤토리 닫기 (Close)", "아이템 장착관리" };
-        string[] DungeonChoice = { "마을로 돌아가기 (Village)", "던전으로 진입" };
-        string[] PlayerInfoChoice = { "정보 그만보기 (Close)" };
-
-        string[] InvenItemChoice = { "아이템 장착관리 취소" };
-        string[] ShopBuyChoice = { "아이템 구매 취소" };
-        string[] ShopSellChoice = { "아이템 판매 취소" };
-        string[] InnRestChoice = { "마을로 돌아가기 ( Village )" };
-        string[] DungeonInChoice = { " 던전 안으로 들어간다... " };
-        string[] DungeonOutChoice = { " 던전 밖으로 나간다... " };
-
-        public void VillageScript()
-        {
-            for (int i = 0; i < VillageChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{VillageChoice[i]}");
-            }
-        }
-        public void ShopScript()
-        {
-            for (int i = 0; i < ShopChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{ShopChoice[i]}");
-            }
-        }
-        public void InnScript()
-        {
-            for (int i = 0; i < InnChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{InnChoice[i]}");
-            }
-        }
-        public void InventoryScript()
-        {
-            for (int i = 0; i < InventoryChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{InventoryChoice[i]}");
-            }
-        }
-        public void DungeonScript()
-        {
-            for (int i = 0; i < DungeonChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{DungeonChoice[i]}");
-            }
-        }
-        public void PlayerInfoScript()
-        {
-            for (int i = 0; i < PlayerInfoChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{PlayerInfoChoice[i]}");
-            }
-        }
-
-        public void InvenItemScript()
-        {
-            for (int i = 0; i < InvenItemChoice.Length; i++)
-            {
-                Console.Write("\n " + (i) + ". ");
-                Console.WriteLine($"{InvenItemChoice[i]}");
-            }
-        }
-        public void ShopBuyScript()
-        {
-            for (int i = 0; i < ShopBuyChoice.Length; i++)
-            {
-                Console.Write("\n " + (i) + ". ");
-                Console.WriteLine($"{ShopBuyChoice[i]}");
-            }
-        }
-        public void ShopSellScript()
-        {
-            for (int i = 0; i < ShopSellChoice.Length; i++)
-            {
-                Console.Write("\n " + (i) + ". ");
-                Console.WriteLine($"{ShopSellChoice[i]}");
-            }
-        }
-        public void InnRestScript()
-        {
-            for (int i = 0; i < InnRestChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{InnRestChoice[i]}");
-            }
-        }
-        public void DungeonInScript()
-        {
-            for (int i = 0; i < DungeonInChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{DungeonInChoice[i]}");
-            }
-        }
-        public void DungeonOutScript()
-        {
-            for (int i = 0; i < DungeonOutChoice.Length; i++)
-            {
-                Console.Write("\n " + (i + 1) + ". ");
-                Console.WriteLine($"{DungeonOutChoice[i]}");
-            }
         }
     }
 }
